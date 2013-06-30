@@ -24,6 +24,12 @@ function FuzzySet:_MakeProb(itemx, item)
 	return pbx
 end
 
+
+-- return a setid -> probability map
+-- probmap = {
+-- [1] = 0.1,
+-- [2] = 1.3,
+--}
 function FuzzySet:MakeSetProb(fs, item)
 	local setmap = {}
 	for setid, itemlist in pairs(fs.setmap) do
@@ -37,6 +43,8 @@ function FuzzySet:MakeSetProb(fs, item)
 	return setmap
 end
 
+
+-- return the setid which item most probably belongs to
 function FuzzySet:BelongTo(fs, item)
 	local maxid = nil
 	local maxpb = 0
